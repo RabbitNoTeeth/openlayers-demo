@@ -9,7 +9,10 @@
   },
   "dependencies": {
     "core-js": "^3.6.5",
-    "vue": "^2.6.11"
+    "leaflet": "^1.7.1",
+    "ol": "^6.6.1",
+    "vue": "^2.6.11",
+    "yarn": "^1.22.11"
   },
   "devDependencies": {
     "@vue/cli-plugin-babel": "~4.5.0",
