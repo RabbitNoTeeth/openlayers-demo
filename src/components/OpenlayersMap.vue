@@ -5,7 +5,7 @@
 <script>
 import {Map, View} from 'ol';
 import TileLayer from 'ol/layer/Tile';
-import TileWMS from 'ol/source/TileWMS';
+import XYZ from 'ol/source/XYZ';
 import Projection from 'ol/proj/Projection';
 
 export default {
@@ -21,26 +21,20 @@ export default {
   methods: {
     initMap() {
       const app = this;
-      const bounds = [983797.5, 207443, 991899.0625, 218850.828125];
+      const bounds = [1.3079709473624736E7,4707873.362584061,1.328190134012295E7,4933520.149300369];
       const map = new Map({
         target: 'map',
         view: new View({
           projection: new Projection({
-            code: 'EPSG:2908',
+            code: 'EPSG:3857',
             units: 'm',
             global: false
           })
         }),
         layers: [
           new TileLayer({
-            source: new TileWMS({
-              projection: 'EPSG:2908',
-              url: 'http://localhost:8080/geoserver/nyc_roads/wms',
-              params: {
-                'LAYERS': 'nyc_roads:nyc_buildings',
-                'FORMAT': 'image/png',
-                'VERSION': '1.1.1',
-              }
+            source: new XYZ({
+              url: "http://192.168.3.65:8080/geoserver/gwc/service/tms/1.0.0/tangshan_tiles%3Ats_tile_level_13@EPSG%3A3857@png/{z}/{x}/{-y}.png"
             })
           })
         ]
@@ -55,8 +49,9 @@ export default {
 <style scoped>
 
 #map {
-  width: 100%;
+  width: 1000px;
   height: 800px;
+  border: 1px solid black;
 }
 
 </style>
