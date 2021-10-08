@@ -1,16 +1,35 @@
 <template>
   <div id="app">
-    <openlayers-map></openlayers-map>
+    <el-tabs v-model="activeName">
+      <el-tab-pane label="XYZ加载TMS瓦片地图" name="1">
+        <LoadTMSByXYZ v-if="activeName === '1'"></LoadTMSByXYZ>
+      </el-tab-pane>
+      <el-tab-pane label="XYZ加载WMTS瓦片地图" name="2">
+        <LoadWMTSByXYZ v-if="activeName === '2'"></LoadWMTSByXYZ>
+      </el-tab-pane>
+      <el-tab-pane label="加载WMTS瓦片地图" name="3">
+        <LoadWMTS v-if="activeName === '3'"></LoadWMTS>
+      </el-tab-pane>
+    </el-tabs>
   </div>
 </template>
 
 <script>
-import OpenlayersMap from "./components/OpenlayersMap";
+import LoadTMSByXYZ from "./components/LoadTMSByXYZ";
+import LoadWMTSByXYZ from "./components/LoadWMTSByXYZ";
+import LoadWMTS from "./components/LoadWMTS";
 
 export default {
   name: 'App',
   components: {
-    OpenlayersMap
+    LoadWMTS,
+    LoadWMTSByXYZ,
+    LoadTMSByXYZ
+  },
+  data() {
+    return {
+      activeName: '3'
+    }
   }
 }
 </script>

@@ -9,7 +9,7 @@ import XYZ from 'ol/source/XYZ';
 import Projection from 'ol/proj/Projection';
 
 export default {
-  name: "OpenlayersMap",
+  name: "LoadWMTSByXYZ",
   data() {
     return {
       map: null
@@ -21,7 +21,7 @@ export default {
   methods: {
     initMap() {
       const app = this;
-      const bounds = [1.3079709473624736E7,4707873.362584061,1.328190134012295E7,4933520.149300369];
+      const bounds = [13203197.206783397, 4788454.964696088, 13218733.03278226, 4799595.661568641];
       const map = new Map({
         target: 'map',
         view: new View({
@@ -34,7 +34,7 @@ export default {
         layers: [
           new TileLayer({
             source: new XYZ({
-              url: "http://192.168.3.65:8080/geoserver/gwc/service/tms/1.0.0/tangshan_tiles%3Ats_tile_level_13@EPSG%3A3857@png/{z}/{x}/{-y}.png"
+              url: "http://localhost:8080/geoserver/gwc/service/tms/1.0.0/LuanNan%3ALuanNan_tiles@EPSG%3A3857x18@png/{z}/{x}/{-y}.png"
             })
           })
         ]
