@@ -34,7 +34,7 @@ export default {
         layers: [
           new TileLayer({
             source: new XYZ({
-              url: "http://localhost:8080/geoserver/gwc/service/tms/1.0.0/LuanNan%3ALuanNan_tiles@EPSG%3A3857x18@png/{z}/{x}/{-y}.png"
+              url: "http://localhost:8080/geoserver/gwc/service/wmts/rest/LuanNan:LuanNan_tiles/EPSG:3857x18/{z}/{y}/{x}?format=image/png"
             })
           })
         ]

@@ -28,7 +28,7 @@ export default {
   },
   data() {
     return {
-      activeName: '3'
+      activeName: '2'
     }
   }
 }
